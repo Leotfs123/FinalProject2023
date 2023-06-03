@@ -65,7 +65,7 @@ public class MemberRegister extends AppCompatActivity {
                     rePasse.setError("Password is required");
                 }
                 if (passe.length() < 6) {
-                    rePasse.setError("Minimum 6 characters are needed for the password");
+                    rePasse.setError("A minimum of 6 characters are required for the password");
                 }
                 rePBar.setVisibility(view.VISIBLE);
                 //Used to save the date values
@@ -73,10 +73,10 @@ public class MemberRegister extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            Toast.makeText(MemberRegister.this, "Compte créé", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(MemberRegister.this, "Count Created", Toast.LENGTH_SHORT).show();
                             //Database of values
                             membreID = fAuth.getCurrentUser().getUid();
-                            DocumentReference documentReference = firestore.collection("membres").document(membreID);
+                            DocumentReference documentReference = firestore.collection("members").document(membreID);
                             Map<String, Object> member = new HashMap<>();
                             member.put("nom", nom);
                             member.put("email", reEmail);
